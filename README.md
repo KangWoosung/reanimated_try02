@@ -4,11 +4,11 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ## Reanimated Repository
 
-- OnBoarding Animation
-- Drawer Animation
-- List Animation
-- Shared Element Animation
-- Masking Skia Animation
+- [x] OnBoarding Animation
+- [x] Drawer Animation
+- [ ] List Animation
+- [ ] Shared Element Animation
+- [ ] Masking Skia Animation
 
 ## Demo
 
