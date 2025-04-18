@@ -4,9 +4,6 @@
 https://randomuser.me/api/portraits/women/31.jpg
 https://randomuser.me/api/portraits/men/31.jpg
 
-아이디어를 얻은 것 같은데..
-scrollHandler 펑션을 zustand 전역 상태로 관리한다면 말이야..
-앱의 모든 스크롤러블 스크린에서 헤더의 fadeout 컨트롤이 가능할 것 같은데, 어때?
 */
 import {
   StyleSheet,

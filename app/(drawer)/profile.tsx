@@ -24,8 +24,6 @@ import Animated, {
 import shadowStyle from "@/components/shadowStyle";
 import { Ionicons } from "@expo/vector-icons";
 import RenderListItem, { Item } from "@/components/app/RenderListItem";
-import { useScrollValues } from "@/contexts/scrollSharedValueZustand";
-
 const initialItems: Item[] = new Array(20).fill(null).map((_, index) => ({
   id: (index + 1).toString(),
   text: `항목 ${index + 1}`,
@@ -36,18 +34,6 @@ const AnimatedList = () => {
 
   // 일반 useRef 사용
   const flatListRef = useRef<FlatList>(null);
-
-  // 스크롤 훅 사용
-  const { createScrollHandler } = useScrollValues();
-  const scrollHandler = createScrollHandler();
-
-  // 스크롤 핸들러 적용을 위한 조건부 props
-  const scrollProps = scrollHandler
-    ? {
-        onScroll: scrollHandler,
-        scrollEventThrottle: 16,
-      }
-    : {};
 
   // 새 항목 추가
   const addItem = () => {
@@ -111,7 +97,6 @@ const AnimatedList = () => {
         keyExtractor={(item) => item.id}
         itemLayoutAnimation={LinearTransition.springify()}
         className="flex-1"
-        {...scrollProps}
       />
 
       <TouchableOpacity
