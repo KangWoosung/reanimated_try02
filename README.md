@@ -14,9 +14,9 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 
 ![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/main/assets/demos/ezgif-7b75c0321892fd.gif)
 
-![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/main/assets/demos/ezgif-3e24894f059d55.gif)
+![Demo](https://raw.githubusercontent.com/KangWoosung/exercise06/main/assets/demos/ezgif-3e24894f059d55.gif)
 
-![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/main/assets/demos/ezgif-745126c80772e1.gif)
+![Demo](https://raw.githubusercontent.com/KangWoosung/exercise06/main/assets/demos/ezgif-745126c80772e1.gif)
 
 ## Get started
 
