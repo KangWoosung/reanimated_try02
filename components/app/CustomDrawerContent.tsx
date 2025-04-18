@@ -31,8 +31,8 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
         {...props}
         scrollEnabled={false}
         contentContainerStyle={{
-          flex: 3,
-          paddingTop: top + 50,
+          flex: 1,
+          paddingTop: top + 10,
           backgroundColor: "#f0f0f0",
           paddingBottom: 0,
         }}
