@@ -98,8 +98,8 @@ const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
   return (
     <>
       <Animated.View
-        className="absolute right-0 w-full h-full
-          items-end justify-center px-10 bg-red-500"
+        className="absolute top-0 bottom-0 right-0 left-0 w-full h-full
+          items-start justify-center px-10 bg-red-500"
         style={[trashBinAnimatedStyle]}
       >
         <Pressable

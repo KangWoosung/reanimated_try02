@@ -108,6 +108,8 @@ export default function RootLayout() {
                     headerShown: false,
                   }}
                 />
+                <Stack.Screen name="settings" />
+                <Stack.Screen name="logout" />
                 <Stack.Screen name="+not-found" />
               </Stack>
             </SafeAreaView>

@@ -8,15 +8,15 @@ import { StyleSheet } from "react-native";
 
 const shadowStyle = StyleSheet.create({
   shadowThin: {
-    shadowColor: "#000",
+    shadowColor: "#ccc",
     shadowOffset: {
       width: 0,
-      height: 10,
+      height: 4,
     },
-    shadowOpacity: 0.3,
-    shadowRadius: 20,
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
 
-    elevation: 3,
+    elevation: 2,
   },
   shadowMedium: {
     shadowColor: "#000",
