@@ -2,6 +2,22 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## Reanimated Repository
+
+- [x] OnBoarding Animation
+- [x] Drawer Animation
+- [x] List Animation
+- [x] Shared Element Animation
+- [ ] Masking Skia Animation
+
+## Demo
+
+![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/main/assets/demos/ezgif-6d0bc7f1c01572.gif)
+
+![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/main/assets/demos/ezgif-3e24894f059d55.gif)
+
+![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/main/assets/demos/ezgif-745126c80772e1.gif)
+
 ## Get started
 
 1. Install dependencies
@@ -10,13 +26,24 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npm install
    ```
 
-2. Start the app
+2. Clear the bundler cache
 
    ```bash
-    npx expo start
+   npx expo start -c
    ```
 
-In the output, you'll find options to open the app in a
+3. Start the app
+
+   ```bash
+   npx expo run:android
+   ```
+
+## Commands.sh
+
+npm install command may occur build errors in further future, since it's April.2025.
+Use the commands in commands.sh line by line and follow the instruction for fresh versions of dependency packages.
+
+In the output, you'll find options to open the app in a:
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
@@ -48,3 +75,5 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+# reanimated_try02
