@@ -95,6 +95,9 @@ const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
     };
   });
 
+  // console.log("=============");
+  // console.log(item.name);
+
   return (
     <>
       <Animated.View
@@ -111,22 +114,39 @@ const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
       </Animated.View>
 
       <GestureDetector gesture={panGesture}>
-        <Animated.View
-          entering={FadeIn}
-          exiting={FadeOut}
-          layout={LinearTransition.springify()}
-          className={`flex-row  items-center p-md 
-          border border-gray-200 bg-background-blank dark:bg-background-secondaryDark
-          drop-shadow-lg rounded-lg ${className}`}
-          style={[shadowStyle.shadowThin, animatedStyle]}
+        {/* <View className="flex-row items-center p-md">
+          <Text className="text-lg font-bold text-foreground dark:text-foreground-dark">
+            {item.name}
+          </Text>
+          bg-background-blank dark:bg-background-blank        
+          layout={LinearTransition.springify()}  
+            <View
+              className="flex-row justify-between items-center py-4 px-8 rounded-full bg-red-500
+          gap-md"
+            >
+            </View>
+        </View> */}
+        <Pressable
+          onPress={() => {
+            router.push({
+              pathname: "/(drawer)/(tabs)/people/[id]",
+              params: {
+                id: item.key,
+                name: item.name,
+                image: item.image,
+                jobTitle: item.jobTitle,
+                email: item.email,
+              },
+            });
+          }}
         >
-          <View className="flex-row justify-between items-center gap-md">
-            <Pressable
-              onPress={() => {
-                console.log("onPress", item.key);
-                router.navigate(`/(drawer)/(tabs)/people/index?id=${item.key}`);
-              }}
-              className="flex-row items-center gap-md"
+          <Animated.View style={[animatedStyle]}>
+            <View
+              className="flex-row items-center p-md my-md
+          bg-background-blank dark:bg-background-blank
+          border-background-secondary dark:border-background-secondaryDark 
+          rounded-full "
+              style={shadowStyle.shadowThin}
             >
               <Animated.Image
                 source={{ uri: item.image }}
@@ -137,22 +157,24 @@ const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
                 }}
                 sharedTransitionTag={`${item.key}-image`}
                 sharedTransitionStyle={customTransition}
-                // sharedTransitionTag="image"
               />
-            </Pressable>
-            <View className="flex-1 gap-1">
-              <Text className="text-lg font-bold text-foreground dark:text-foregroundDark">
-                {item.name}
-              </Text>
-              <Text className="text-sm text-tertiary dark:text-tertiaryDark">
-                {item.jobTitle}
-              </Text>
-              <Text className="text-sm text-success-hoverDark dark:text-hover">
-                {item.email}
-              </Text>
+              <View className="flex-1 gap-1 ">
+                <Text className="text-lg font-bold text-foreground dark:text-foreground-dark ">
+                  {item.name}
+                </Text>
+                <Text
+                  className="text-sm 
+                  text-foreground-tertiary dark:text-foreground-dark "
+                >
+                  {item.jobTitle}
+                </Text>
+                <Text className="text-sm text-foreground-tertiary dark:text-foreground-secondaryDark">
+                  {item.email}
+                </Text>
+              </View>
             </View>
-          </View>
-        </Animated.View>
+          </Animated.View>
+        </Pressable>
       </GestureDetector>
     </>
   );

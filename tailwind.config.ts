@@ -3,17 +3,6 @@
 /*
 기본 slate 색상이 마음에 들지 않으면, Claude 에서 다른 색상으로 일괄 변경해달라고 하자.
 
-
-*/
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  // NOTE: Update this to include the paths to all of your component files.
-  content: ["./app/**/*.{js,jsx,ts,tsx}"],
-  presets: [require("nativewind/preset")],
-  // darkMode: "class", // 다크 모드 설정 ('class' 기반으로 다크 모드 전환)
-  theme: {
-    extend: {
       colors: {
         // 라이트 모드와 다크 모드에 따른 배경 및 전경 색상
         background: {
@@ -92,6 +81,94 @@ module.exports = {
         },
       },
 
+
+*/
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // NOTE: Update this to include the paths to all of your component files.
+  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+  presets: [require("nativewind/preset")],
+  // darkMode: "class", // 다크 모드 설정 ('class' 기반으로 다크 모드 전환)
+  theme: {
+    extend: {
+      colors: {
+        // 라이트 모드와 다크 모드에 따른 배경 및 전경 색상
+        background: {
+          DEFAULT: "#e6ebe3", // 라이트 모드 기본 배경 (연한 세이지)
+          blank: "#f2f5f0", // 라이트 모드 빈 배경 (밝은 오프화이트)
+          dark: "#121815", // 다크 모드 기본 배경 (어두운 올리브 블랙)
+          secondary: "#d5dfd0", // 라이트 모드 보조 배경 (더 연한 세이지)
+          secondaryDark: "#1a201c", // 다크 모드 보조 배경 (어두운 올리브)
+          tertiary: "#c4d1bd", // 라이트 모드 3차 배경 (가장 연한 세이지)
+          tertiaryDark: "#212a25", // 다크 모드 3차 배경 (중간 어두운 올리브)
+        },
+        foreground: {
+          DEFAULT: "#2a352e", // 라이트 모드 기본 전경 (어두운 세이지)
+          dark: "#f2f5f0", // 다크 모드 기본 전경 (밝은 오프화이트)
+          secondary: "#3a4a3e", // 라이트 모드 보조 전경 (더 어두운 세이지)
+          secondaryDark: "#e6ebe3", // 다크 모드 보조 전경 (약간 어두운 오프화이트)
+          tertiary: "#4d5e52", // 라이트 모드 3차 전경 (가장 어두운 세이지)
+          tertiaryDark: "#a8b9a5", // 다크 모드 3차 전경 (연한 세이지)
+        },
+        // 버튼 색상 (Primary 및 Secondary)
+        primary: {
+          DEFAULT: "#697565", // 브랜드 컬러 (세이지 그린)
+          dark: "#8fa389", // 다크 모드 브랜드 컬러 (밝은 세이지)
+          hover: "#5e6a5b", // 호버 상태 (약간 어두운 세이지)
+          hoverDark: "#7e9178", // 다크 모드 호버 상태 (약간 어두운 밝은 세이지)
+          active: "#545f51", // 활성 상태 (더 어두운 세이지)
+          activeDark: "#6d7f68", // 다크 모드 활성 상태 (더 어두운 밝은 세이지)
+          disabled: "#a8b9a5", // 비활성화 상태 (연한 세이지)
+          disabledDark: "#3a4a3e", // 다크 모드 비활성화 상태 (어두운 세이지)
+        },
+        secondary: {
+          DEFAULT: "#8fa389", // 보조 컬러 (밝은 세이지)
+          dark: "#697565", // 다크 모드 보조 컬러 (세이지 그린)
+          hover: "#7e9178", // 호버 상태 (약간 어두운 밝은 세이지)
+          hoverDark: "#5e6a5b", // 다크 모드 호버 상태 (약간 어두운 세이지)
+          active: "#6d7f68", // 활성 상태 (더 어두운 밝은 세이지)
+          activeDark: "#545f51", // 다크 모드 활성 상태 (더 어두운 세이지)
+          disabled: "#c4d1bd", // 비활성화 상태 (가장 연한 세이지)
+          disabledDark: "#2a352e", // 다크 모드 비활성화 상태 (어두운 세이지)
+        },
+        // 경고 (Warning) 색상
+        warning: {
+          DEFAULT: "#d9ae89", // 경고 컬러 (따뜻한 베이지)
+          dark: "#c99c77", // 다크 모드 경고 컬러 (어두운 베이지)
+          hover: "#d0a27b", // 호버 상태 (약간 어두운 베이지)
+          hoverDark: "#ba8e69", // 다크 모드 호버 상태 (약간 어두운 어두운 베이지)
+          active: "#c7966d", // 활성 상태 (더 어두운 베이지)
+          activeDark: "#ab805b", // 다크 모드 활성 상태 (더 어두운 어두운 베이지)
+        },
+        // 에러 색상
+        error: {
+          DEFAULT: "#c25450", // 에러 컬러 (세이지 톤의 빨강)
+          dark: "#b24642", // 다크 모드 에러 컬러 (어두운 세이지 톤의 빨강)
+          hover: "#b74d49", // 호버 상태 (약간 어두운 세이지 톤의 빨강)
+          hoverDark: "#a33f3b", // 다크 모드 호버 상태 (약간 어두운 어두운 세이지 톤의 빨강)
+          active: "#a94641", // 활성 상태 (더 어두운 세이지 톤의 빨강)
+          activeDark: "#943834", // 다크 모드 활성 상태 (더 어두운 어두운 세이지 톤의 빨강)
+        },
+        // 성공 색상
+        success: {
+          DEFAULT: "#5a9178", // 성공 컬러 (세이지 톤의 그린)
+          dark: "#4d7d67", // 다크 모드 성공 컬러 (어두운 세이지 톤의 그린)
+          hover: "#51836c", // 호버 상태 (약간 어두운 세이지 톤의 그린)
+          hoverDark: "#446f5c", // 다크 모드 호버 상태 (약간 어두운 어두운 세이지 톤의 그린)
+          active: "#487560", // 활성 상태 (더 어두운 세이지 톤의 그린)
+          activeDark: "#3b6151", // 다크 모드 활성 상태 (더 어두운 어두운 세이지 톤의 그린)
+        },
+        // 정보 색상
+        info: {
+          DEFAULT: "#5d8a9a", // 정보 컬러 (세이지 톤의 블루)
+          dark: "#4f7a89", // 다크 모드 정보 컬러 (어두운 세이지 톤의 블루)
+          hover: "#547d8c", // 호버 상태 (약간 어두운 세이지 톤의 블루)
+          hoverDark: "#476d7b", // 다크 모드 호버 상태 (약간 어두운 어두운 세이지 톤의 블루)
+          active: "#4b707e", // 활성 상태 (더 어두운 세이지 톤의 블루)
+          activeDark: "#3f606d", // 다크 모드 활성 상태 (더 어두운 어두운 세이지 톤의 블루)
+        },
+      },
       fontFamily: {
         pthin: ["Poppins-Thin", "sans-serif"],
         pextralight: ["Poppins-ExtraLight", "sans-serif"],
@@ -175,7 +252,7 @@ module.exports = {
 
   // 사용자 정의 유틸리티 클래스
   plugins: [
-    function ({ addUtilities }) {
+    function ({ addUtilities }: { addUtilities: any }) {
       const newUtilities = {
         // 텍스트 스타일
         ".text-display-1": {

@@ -1,13 +1,27 @@
+/*
+
+Stack, Tabs, Drawer 등의 네비게이션 컴포넌트에서는 Nativewind className 을 사용할 수 없는데,
+프로젝트의 디자인 시스템으로, tailwind.config.js 에 정의된 클래스의 컬러를 사용하고 싶다. 
+Stack 의 screenOptions 에서 tailwind.config.js 에 정의된 클래스의 컬러를 사용할 수 있는 방법이 있을까?
+일단 컬러만 확보할 수 있다면,
+headerStyle: {
+  backgroundColor: "red",
+},
+이런 식으로 네비게이션 헤더의 스타일을 지정할 수 있을 것 같은데...
+
+
+*/
+
+import { View, Text } from "react-native";
 import React from "react";
-import { router, Stack, useGlobalSearchParams } from "expo-router";
+import { Stack, useGlobalSearchParams } from "expo-router";
 import DrawerIcon from "@/components/navigator/DrawerIcon";
-import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import tailwindColors from "@/utils/tailwindColors";
 import { useColorScheme } from "nativewind";
-
-const PeopleLayout = () => {
+const IndexLayout = () => {
   const params = useGlobalSearchParams();
+
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
 
@@ -27,27 +41,24 @@ const PeopleLayout = () => {
         headerTitleStyle: {
           color: foregroundTheme,
         },
-        headerTintColor: foregroundTheme,
       }}
     >
       <Stack.Screen
         name="index"
         options={{
           headerShown: true,
-          headerTitle: "People",
+          headerTitle: "Index",
           headerLeft: () => <DrawerIcon color={foregroundTheme} size={24} />,
-        }}
-      />
-      <Stack.Screen
-        name="[id]"
-        options={{
-          headerShown: true,
-          headerTitle: params.name ? `${params.name}` : "People detail",
-          headerBackTitle: "목록으로",
+          headerStyle: {
+            backgroundColor: backgroundTheme,
+          },
+          headerTitleStyle: {
+            color: foregroundTheme,
+          },
         }}
       />
     </Stack>
   );
 };
 
-export default PeopleLayout;
+export default IndexLayout;

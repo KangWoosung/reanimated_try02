@@ -4,7 +4,9 @@ import React from "react";
 const ProfileIndex = () => {
   return (
     <View className="flex-1 items-center justify-center bg-background dark:bg-background-dark">
-      <Text className="text-2xl font-bold">Profile</Text>
+      <Text className="text-2xl font-bold text-foreground dark:text-foreground-dark">
+        Profile
+      </Text>
     </View>
   );
 };

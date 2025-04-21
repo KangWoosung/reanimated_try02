@@ -6,7 +6,10 @@
 // /contexts/NativewindThemeContext.tsx
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { View } from "react-native";
-import { useColorScheme as useNativewindColorScheme } from "nativewind";
+import {
+  useColorScheme as useNativewindColorScheme,
+  cssInterop,
+} from "nativewind";
 import { MMKV } from "react-native-mmkv";
 import { THEME_STORAGE_KEY } from "@/constants/constants";
 

@@ -73,7 +73,7 @@ const PeopleIndex = () => {
   };
 
   return (
-    <View className="flex-1 bg-background dark:bg-background-dark">
+    <View className="flex-1 bg-background dark:bg-background-dark ">
       <Animated.FlatList
         ref={scrollRef}
         data={items}
@@ -82,8 +82,8 @@ const PeopleIndex = () => {
         )}
         keyExtractor={(item) => item.key}
         itemLayoutAnimation={LinearTransition.springify()}
-        className="flex-1 gap-md p-md"
-        contentContainerClassName="gap-md"
+        className="flex-1 gap-md p-md "
+        // contentContainerClassName="flex-1 gap-md p-sm"
       />
 
       <Animated.View
@@ -93,7 +93,7 @@ const PeopleIndex = () => {
         <TouchableOpacity
           onPress={scrollToTop}
           className="bg-background-tertiary dark:bg-background-tertiaryDark rounded-full p-sm"
-          style={shadowStyle.shadowThin}
+          // style={shadowStyle.shadowThin}
         >
           <Ionicons name="arrow-up" size={24} color="white" />
         </TouchableOpacity>
