@@ -7,7 +7,7 @@
 */
 
 import React from "react";
-import { View, Text, Image, Pressable } from "react-native";
+import { View, Text, Image, Pressable, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import { Dimensions } from "react-native";
@@ -25,7 +25,8 @@ import shadowStyle from "@/components/shadowStyle";
 
 // import { Image } from "expo-image";
 import { Link, router } from "expo-router";
-
+import { useColorScheme } from "nativewind";
+import tailwindColors, { tailwindSpacing } from "@/utils/tailwindColors";
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const SWIPE_THRESHOLD = -SCREEN_WIDTH * 0.3;
 export type PersonDataType = {
@@ -44,6 +45,9 @@ type RenderItemProps = {
 };
 
 const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
+  const { colorScheme } = useColorScheme();
+  const isDark = colorScheme === "dark";
+
   // SharedValue...
   const positionX = useSharedValue(0);
 
@@ -142,11 +146,8 @@ const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
         >
           <Animated.View style={[animatedStyle]}>
             <View
-              className="flex-row items-center p-md my-md
-          bg-background-blank dark:bg-background-blank
-          border-background-secondary dark:border-background-secondaryDark 
-          rounded-full "
-              style={shadowStyle.shadowThin}
+              className="flex-row items-center p-md my-md rounded-lg "
+              style={isDark ? styles.cardStyleDark : styles.cardStyleLight}
             >
               <Animated.Image
                 source={{ uri: item.image }}
@@ -179,5 +180,16 @@ const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  cardStyleLight: {
+    marginVertical: 8,
+    backgroundColor: tailwindColors.background.blank,
+  },
+  cardStyleDark: {
+    marginVertical: 8,
+    backgroundColor: tailwindColors.background.tertiaryDark,
+  },
+});
 
 export default RenderPersonItem;

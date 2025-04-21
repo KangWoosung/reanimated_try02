@@ -10,13 +10,15 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 - [x] Shared Element Animation
 - [ ] Masking Skia Animation
 
-## Demo
+## Demo darkMode1.gif
 
 ![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/master/assets/demos/ezgif-6d0bc7f1c01572.gif)
 
 ![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/main/assets/demos/ezgif-3e24894f059d55.gif)
 
 ![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/main/assets/demos/ezgif-745126c80772e1.gif)
+
+![Demo](https://raw.githubusercontent.com/KangWoosung/reanimated_try02/master/assets/demos/darkMode1.gif)
 
 ## Get started
 

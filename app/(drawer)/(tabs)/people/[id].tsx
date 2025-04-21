@@ -9,12 +9,12 @@ const PersonDetail = () => {
 
   return (
     <View className="flex-1 p-md bg-background dark:bg-background-dark">
-      <Animated.View
+      <View
         className="flex-col w-full 
     bg-background dark:bg-background-tertiaryDark rounded-lg p-4 gap-lg"
         style={shadowStyle.shadowThin}
-        sharedTransitionTag={`person-${params.id}`}
-        entering={FadeIn.duration(200).delay(200 * Number(params.id))}
+        // sharedTransitionTag={`person-${params.id}`}
+        // entering={FadeIn.duration(200).delay(200 * Number(params.id))}
       >
         <View className="flex-row gap-md">
           <Image
@@ -50,7 +50,7 @@ const PersonDetail = () => {
             adipisicing elit. Quisquam, quos.
           </Text>
         </View>
-      </Animated.View>
+      </View>
     </View>
   );
 };
