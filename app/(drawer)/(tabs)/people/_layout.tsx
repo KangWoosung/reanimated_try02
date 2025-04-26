@@ -1,5 +1,10 @@
-import React from "react";
-import { router, Stack, useGlobalSearchParams } from "expo-router";
+import React, { useEffect } from "react";
+import {
+  router,
+  Stack,
+  useFocusEffect,
+  useGlobalSearchParams,
+} from "expo-router";
 import DrawerIcon from "@/components/navigator/DrawerIcon";
 import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -10,6 +15,14 @@ const PeopleLayout = () => {
   const params = useGlobalSearchParams();
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
+
+  // Clear the Stack
+  // useEffect(() => {
+  //   const clearStack = () => {
+  //     router.dismissAll();
+  //   };
+  //   return clearStack; // 함수 자체를 리턴
+  // }, []);
 
   const backgroundTheme =
     tailwindColors.background[isDark ? "secondaryDark" : "secondary"];
@@ -28,6 +41,7 @@ const PeopleLayout = () => {
           color: foregroundTheme,
         },
         headerTintColor: foregroundTheme,
+        // detachInactiveScreens: true,
       }}
     >
       <Stack.Screen
@@ -44,6 +58,7 @@ const PeopleLayout = () => {
           headerShown: true,
           headerTitle: params.name ? `${params.name}` : "People detail",
           headerBackTitle: "목록으로",
+          // unmountOnBlur: true, // ✅ 이거 추가
         }}
       />
     </Stack>

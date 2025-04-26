@@ -36,6 +36,7 @@ const DrawerLayout = () => {
           marginLeft: Platform.OS === "ios" ? -20 : 0,
           color: foregroundTheme,
         },
+        drawerType: "slide", // 🔥 이게 핵심!
       }}
       drawerContent={CustomDrawerContent}
     >

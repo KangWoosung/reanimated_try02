@@ -1,20 +1,27 @@
 import { View, Text, Pressable, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import shadowStyle from "@/components/shadowStyle";
-import Animated, { FadeIn } from "react-native-reanimated";
-import { useGlobalSearchParams } from "expo-router";
+import { useFocusEffect, useGlobalSearchParams } from "expo-router";
 
 const PersonDetail = () => {
   const params = useGlobalSearchParams();
+  const [shouldHide, setShouldHide] = useState(false);
 
-  return (
+  useFocusEffect(() => {
+    setShouldHide(false);
+    return () => {
+      setShouldHide(true);
+    };
+  });
+
+  return shouldHide ? (
+    <View className="flex-1 p-md bg-background dark:bg-background-dark"></View>
+  ) : (
     <View className="flex-1 p-md bg-background dark:bg-background-dark">
       <View
         className="flex-col w-full 
-    bg-background dark:bg-background-tertiaryDark rounded-lg p-4 gap-lg"
+      bg-background dark:bg-background-tertiaryDark rounded-lg p-4 gap-lg"
         style={shadowStyle.shadowThin}
-        // sharedTransitionTag={`person-${params.id}`}
-        // entering={FadeIn.duration(200).delay(200 * Number(params.id))}
       >
         <View className="flex-row gap-md">
           <Image

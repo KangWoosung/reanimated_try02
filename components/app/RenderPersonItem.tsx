@@ -1,7 +1,12 @@
 /*
 2025-04-18 05:18:14
 
+Reanimated Animated. components occur Tailwind class render error.
+Github thread:
+https://github.com/software-mansion/react-native-reanimated/issues/6665
 
+Some Nativewind classes are not working with Reanimated Animated. components.
+So, I had to use StyleSheet theming the component.
 
 
 */
@@ -12,9 +17,6 @@ import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 import { Dimensions } from "react-native";
 import Animated, {
-  FadeIn,
-  FadeOut,
-  LinearTransition,
   runOnJS,
   SharedTransition,
   useAnimatedStyle,
@@ -118,18 +120,6 @@ const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
       </Animated.View>
 
       <GestureDetector gesture={panGesture}>
-        {/* <View className="flex-row items-center p-md">
-          <Text className="text-lg font-bold text-foreground dark:text-foreground-dark">
-            {item.name}
-          </Text>
-          bg-background-blank dark:bg-background-blank        
-          layout={LinearTransition.springify()}  
-            <View
-              className="flex-row justify-between items-center py-4 px-8 rounded-full bg-red-500
-          gap-md"
-            >
-            </View>
-        </View> */}
         <Pressable
           onPress={() => {
             router.push({
@@ -164,12 +154,18 @@ const RenderPersonItem = ({ item, removeItem, className }: RenderItemProps) => {
                   {item.name}
                 </Text>
                 <Text
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
                   className="text-sm 
                   text-foreground-tertiary dark:text-foreground-dark "
                 >
                   {item.jobTitle}
                 </Text>
-                <Text className="text-sm text-foreground-tertiary dark:text-foreground-secondaryDark">
+                <Text
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                  className="text-sm text-foreground-tertiary dark:text-foreground-secondaryDark"
+                >
                   {item.email}
                 </Text>
               </View>

@@ -1,6 +1,8 @@
-const tailwindColors = require("../tailwind.config.ts").theme.extend.colors;
+const tailwindVars = require("@/tailwind.config.ts").theme.extend;
 
+const tailwindColors = tailwindVars.colors;
 export default tailwindColors;
 
-export const tailwindSpacing = require("../tailwind.config.ts").theme.extend
-  .spacing;
+export const tailwindSpacing = tailwindVars.spacing;
+
+export const tailwindFontFamily = tailwindVars.fontFamily;

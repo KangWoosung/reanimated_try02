@@ -85,6 +85,12 @@ npx expo install expo-image
 ## 2025-04-16 15:23:00
 npx expo install @faker-js/faker
 
+## 2025-04-22 05:25:51
+npx expo install @shopify/react-native-skia
+
+## 2025-04-22 05:27:00
+npx expo install @shopify/restyle
+
 
 ## Wait for user input
 echo "Press Enter if you are ready to start ..."

@@ -1,3 +1,14 @@
+/*
+2025-04-26 20:46:44
+
+This component uses high resource consuming methods like Canvas, List, Image, etc.
+So useFocusEffect is used to hide the component when it is not focused.
+
+ScrollPosition should be stored and be used to restore the scroll position 
+when the component is focused again.
+
+*/
+
 import { View, Text, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { faker } from "@faker-js/faker";
@@ -13,6 +24,7 @@ import RenderPersonItem, {
 import { useAnimatedRef } from "react-native-reanimated";
 import shadowStyle from "@/components/shadowStyle";
 import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect } from "expo-router";
 
 faker.seed(10);
 
@@ -32,6 +44,14 @@ const initialItems = DATA;
 
 const PeopleIndex = () => {
   const [items, setItems] = useState<PersonDataType[]>(initialItems);
+  const [shouldHide, setShouldHide] = useState(false);
+
+  useFocusEffect(() => {
+    setShouldHide(false);
+    return () => {
+      setShouldHide(true);
+    };
+  });
 
   // useAnimatedRef
   const scrollRef = useAnimatedRef<Animated.FlatList<PersonDataType>>();
@@ -72,7 +92,9 @@ const PeopleIndex = () => {
     scrollRef.current?.scrollToIndex({ index: 0, animated: true });
   };
 
-  return (
+  return shouldHide ? (
+    <View className="flex-1 bg-background dark:bg-background-dark "></View>
+  ) : (
     <View className="flex-1 bg-background dark:bg-background-dark ">
       <Animated.FlatList
         ref={scrollRef}

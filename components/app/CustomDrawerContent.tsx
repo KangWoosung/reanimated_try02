@@ -14,7 +14,9 @@ import { Image } from "expo-image";
 import { useThemeProvider } from "@/contexts/NativewindThemeProvider";
 import tailwindColors from "@/utils/tailwindColors";
 import { useColorScheme } from "nativewind";
-
+import { THEME_TOGGLER_BUTTON_SIZE } from "@/constants/constants";
+import { CurtainMaskTriggerButton } from "./CurtainMaskTriggerButton";
+import { CircleMaskTriggerButton } from "./CircleMaskTriggerButton";
 const getRandomAvatarUri = () => {
   const randomNum = Math.floor(Math.random() * (99 - 10 + 1)) + 10;
   return `https://randomuser.me/api/portraits/men/${randomNum}.jpg`;
@@ -87,7 +89,8 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
           <View className="flex-row items-center justify-end gap-4">
             <Text></Text>
           </View>
-          <Pressable
+          <CircleMaskTriggerButton />
+          {/* <Pressable
             onPress={() => {
               console.log("Theme Toggler");
               nativeWindSetTheme(
@@ -96,7 +99,11 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
             }}
           >
             {nativewindColorScheme === "dark" ? (
-              <Ionicons name="moon-outline" size={24} color={foregroundTheme} />
+              <Ionicons
+                name="moon-outline"
+                size={THEME_TOGGLER_BUTTON_SIZE}
+                color={foregroundTheme}
+              />
             ) : (
               <Ionicons
                 name="sunny-outline"
@@ -104,7 +111,7 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
                 color={foregroundTheme}
               />
             )}
-          </Pressable>
+          </Pressable> */}
         </View>
         <View
           className="flex-col items-center justify-start gap-4 pt-5"

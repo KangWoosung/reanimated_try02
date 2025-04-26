@@ -24,6 +24,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NativewindThemeProvider } from "@/contexts/NativewindThemeProvider";
 import { SafeAreaView } from "react-native";
 import OnBoardingIndex from "./onboarding";
+import MaskAnimationProvider from "@/contexts/MaskAnimationProvider";
 
 // 2025-03-29 17:12:23
 // disabled strict mode for reanimated
@@ -92,29 +93,27 @@ export default function RootLayout() {
   // Render Main Screen when onBoardingFlag is false
   if (!onBoardingFlag) {
     return (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <NativewindThemeProvider>
-          <SafeAreaProvider>
-            <StatusBar
-              // hidden={isDrawerOpen}
-              // animated={false}
-              style={colorScheme === "light" ? "dark" : "light"}
-            />
-            <SafeAreaView className="flex-1 bg-background dark:bg-background-dark">
-              <Stack initialRouteName="(drawer)">
-                <Stack.Screen
-                  name="(drawer)"
-                  options={{
-                    headerShown: false,
-                  }}
-                />
-                <Stack.Screen name="settings" />
-                <Stack.Screen name="logout" />
-                <Stack.Screen name="+not-found" />
-              </Stack>
-            </SafeAreaView>
-          </SafeAreaProvider>
-        </NativewindThemeProvider>
+      <GestureHandlerRootView>
+        <MaskAnimationProvider>
+          <NativewindThemeProvider>
+            {/* <StatusBar
+                // hidden={isDrawerOpen}
+                // animated={false}
+                style={colorScheme === "light" ? "dark" : "light"}
+              /> */}
+            <Stack initialRouteName="(drawer)">
+              <Stack.Screen
+                name="(drawer)"
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen name="settings" />
+              <Stack.Screen name="logout" />
+              <Stack.Screen name="+not-found" />
+            </Stack>
+          </NativewindThemeProvider>
+        </MaskAnimationProvider>
       </GestureHandlerRootView>
     );
   }
