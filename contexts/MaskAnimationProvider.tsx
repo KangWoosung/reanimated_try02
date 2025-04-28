@@ -54,10 +54,6 @@ type ColorSchemeProviderProps = {
 };
 
 const MaskAnimationProvider = ({ children }: ColorSchemeProviderProps) => {
-  const inset = useSafeAreaInsets();
-  const insideHeight = SCRN_HEIGHT - (inset.top + inset.bottom);
-  const { colorScheme, setColorScheme } = useNativewindColorScheme();
-
   // Pixel Density for Snapshot Image Scaling
   const pd = PixelRatio.get();
 
@@ -66,6 +62,10 @@ const MaskAnimationProvider = ({ children }: ColorSchemeProviderProps) => {
   const circleRadius = useSharedValue(0);
   const circleCoordX = useSharedValue(0);
   const circleCoordY = useSharedValue(0);
+
+  // Derived Values
+  const derivedCircleX = useDerivedValue(() => circleCoordX?.value ?? 0);
+  const derivedCircleY = useDerivedValue(() => circleCoordY?.value ?? 0);
 
   // create ref
   const ref = useRef<View>(null);
@@ -103,8 +103,6 @@ const MaskAnimationProvider = ({ children }: ColorSchemeProviderProps) => {
       setCircleCoordY(circleCoordY);
     };
   }, []);
-
-  useEffect(() => {}, []);
 
   return (
     <SafeAreaProvider>
@@ -165,8 +163,8 @@ const MaskAnimationProvider = ({ children }: ColorSchemeProviderProps) => {
                     color="white"
                   />
                   <Circle
-                    cx={circleCoordX}
-                    cy={circleCoordY}
+                    cx={derivedCircleX}
+                    cy={derivedCircleY}
                     r={circleRadius}
                     color="black"
                   />

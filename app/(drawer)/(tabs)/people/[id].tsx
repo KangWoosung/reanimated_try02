@@ -1,7 +1,8 @@
-import { View, Text, Pressable, Image } from "react-native";
-import React, { useState } from "react";
+import { View, Text, Pressable, Image, ScrollView } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
 import shadowStyle from "@/components/shadowStyle";
 import { useFocusEffect, useGlobalSearchParams } from "expo-router";
+import { useIsFocused } from "@react-navigation/native";
 
 const PersonDetail = () => {
   const params = useGlobalSearchParams();
@@ -14,10 +15,23 @@ const PersonDetail = () => {
     };
   });
 
+  // Restore scroll position when the screen is focused back.
+  const scrollRef = useRef<ScrollView>(null);
+
+  // const isFocused = useIsFocused();
+  // useEffect(() => {
+  //   if (isFocused) {
+  //     scrollRef.current?.scrollTo({ y: 0, animated: true });
+  //   }
+  // }, [isFocused]);
+
   return shouldHide ? (
     <View className="flex-1 p-md bg-background dark:bg-background-dark"></View>
   ) : (
-    <View className="flex-1 p-md bg-background dark:bg-background-dark">
+    <ScrollView
+      ref={scrollRef}
+      className="flex-1 p-md bg-background dark:bg-background-dark"
+    >
       <View
         className="flex-col w-full 
       bg-background dark:bg-background-tertiaryDark rounded-lg p-4 gap-lg"
@@ -58,7 +72,7 @@ const PersonDetail = () => {
           </Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

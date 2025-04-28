@@ -20,7 +20,7 @@ type ColorSchemeState = {
   curtainOverlay: SkImage | null;
   circleOverlay: SkImage | null;
   circleRadius: SharedValue<number> | null;
-  curtainWidth: any;
+  curtainWidth: SharedValue<number> | null;
   circleCoordX: SharedValue<number> | null;
   circleCoordY: SharedValue<number> | null;
   setActive: (active: boolean) => void;

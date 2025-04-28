@@ -91,6 +91,12 @@ npx expo install @shopify/react-native-skia
 ## 2025-04-22 05:27:00
 npx expo install @shopify/restyle
 
+## 2025-04-28 10:17:40
+npx expo install expo-zustand-persist
+
+## 2025-04-28 10:19:39
+npx expo install @react-native-async-storage/async-storage
+
 
 ## Wait for user input
 echo "Press Enter if you are ready to start ..."

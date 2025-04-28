@@ -1,4 +1,4 @@
-import { View, Text, Platform, Pressable } from "react-native";
+import { View, Text, Platform, Pressable, Image } from "react-native";
 import React from "react";
 import {
   DrawerItemList,
@@ -10,7 +10,7 @@ import {
 import { useRouter, usePathname, router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Image } from "expo-image";
+// import { Image } from "expo-image";
 import { useThemeProvider } from "@/contexts/NativewindThemeProvider";
 import tailwindColors from "@/utils/tailwindColors";
 import { useColorScheme } from "nativewind";
@@ -90,28 +90,6 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
             <Text></Text>
           </View>
           <CircleMaskTriggerButton />
-          {/* <Pressable
-            onPress={() => {
-              console.log("Theme Toggler");
-              nativeWindSetTheme(
-                nativewindColorScheme === "dark" ? "light" : "dark"
-              );
-            }}
-          >
-            {nativewindColorScheme === "dark" ? (
-              <Ionicons
-                name="moon-outline"
-                size={THEME_TOGGLER_BUTTON_SIZE}
-                color={foregroundTheme}
-              />
-            ) : (
-              <Ionicons
-                name="sunny-outline"
-                size={24}
-                color={foregroundTheme}
-              />
-            )}
-          </Pressable> */}
         </View>
         <View
           className="flex-col items-center justify-start gap-4 pt-5"
@@ -123,7 +101,7 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
               style={{
                 width: 100,
                 height: 100,
-                borderRadius: 100,
+                borderRadius: 9999,
               }}
             />
           </View>

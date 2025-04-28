@@ -32,7 +32,7 @@ export const CurtainMaskTriggerButton = () => {
     .onStart(async (e) => {
       if (!active) {
         setActive(true);
-        await wait(80);
+        await wait(16);
         const snapshot1 = await takeSnapshot(ref);
         if (snapshot1) {
           setCurtainOverlay(snapshot1);

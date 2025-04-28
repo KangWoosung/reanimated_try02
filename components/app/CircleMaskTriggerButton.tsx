@@ -49,7 +49,8 @@ export const CircleMaskTriggerButton = () => {
 
       if (!active) {
         setActive(true);
-        await wait(80);
+        // Wait for just 1 frame
+        await wait(16);
         const snapshot2 = await takeSnapshot(ref);
         if (snapshot2) {
           setCircleOverlay(snapshot2);
